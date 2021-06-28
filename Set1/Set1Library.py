@@ -117,12 +117,12 @@ def repeated_XOR_decrypt(string,keysize):
     return(decrypted_msg,key)
 
 #looks for repeated blocks to detect a 128bit ECB cipher
-def is_ECB(byte_string):
+def is_ECB(byte_string,block_size):
     #chunks the string into blocks of size 16
     blocks = []
     j = 0
-    while (j+1)*16<=len(byte_string):
-        blocks = blocks + [byte_string[j*16:(j+1)*16]]
+    while (j+1)*block_size<=len(byte_string):
+        blocks = blocks + [byte_string[j*block_size:(j+1)*block_size]]
         j=j+1
 
     repeats = len(blocks)-len(set(blocks))#counts how many blocks are repeated

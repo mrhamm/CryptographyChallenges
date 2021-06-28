@@ -7,7 +7,7 @@ Lines = file.readlines()
 results = []
 for i in range(len(Lines)):
     line = codecs.decode(Lines[i][0:-1],'hex')
-    if S1.is_ECB(line):
+    if S1.is_ECB(line,16):
         results = results+[i]
 
 print(results)
